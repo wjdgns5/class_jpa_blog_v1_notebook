@@ -107,7 +107,14 @@ public class BoardController {
         return "board/update-form";
     }
 
-
+    /**
+     * 게시글 수정 요청 가능
+     * @param id
+     * @param title
+     * @param content
+     * @return
+     */
+    @PostMapping("/board/{id}/update")
     public String update(@PathVariable(name = "id") Integer id, @RequestParam(name = "title") String title, @RequestParam(name = "content") String content) {
         boardNativeRepository.updateById(id, title, content);
         // 업데이트 기능이 완료되면 디테일로 자기자신을 바라본다?
